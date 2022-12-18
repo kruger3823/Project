@@ -1,0 +1,107 @@
+
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+
+
+
+<div class="container">
+
+    <br>
+
+  {% if sem1 %}
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+<div class="col-md-12">
+                          <div style="overflow-x:auto;">
+                            <form action="" >
+                              {% csrf_token %}
+                              <div class="row">
+                                <div class="col-12">
+                                  <div class="card">
+                                    <div class="card-header" style="background-color: #17a2b8;color: white;">
+                                      <h3 class="card-title">SEMESTER 1</h3>
+
+                                      <!-- <div class="card-tools">
+                                        <div class="input-group input-group-sm" style="width: 150px;">
+                                          <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                                          <div class="input-group-append">
+                                            <button type="submit" class="btn btn-default">
+                                              <i class="fas fa-search"></i>
+                                            </button>
+                                          </div>
+                                        </div>
+                                      </div> -->
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <div class="card-body table-responsive p-0">
+                                      <table class="table table-hover text-nowrap">
+                                        <thead>
+
+                                          <tr>
+                                            <th>TOTAL MARKS</th>
+                                            <th>ATTENDANCE</th>
+                                            <th>ASSIGNMENT</th>
+
+
+
+
+                                          </tr>
+
+                                        </thead>
+                                        {% for s in sem1 %}
+                                          <tr>
+                                            <td> {{s.total}}</td>
+                                            <td> {{s.attendance}}</td>
+                                            <td>{{s.assignment}}</td>
+
+
+                                          {% endfor %}
+
+                                          </tr>
+
+
+                                      </table>
+                                    </div>
+                                    <!-- /.card-body -->
+                                  </div>
+                                  <!-- /.card -->
+                                </div>
+                              </div>
+                          </form>
+                          </div>
+                    </div>
+        </tr>
+    </div>
+    <table class="table table-hover" id="dev-table">
+
+
+  {%else%}
+  <br><br><br>
+      <h4 style="text-align: center;color: red;">No Records Found !!!</h4>
+
+  {% endif %}
+
+
+
+{% endblock content %}
